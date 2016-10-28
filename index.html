@@ -1,39 +1,50 @@
 <!DOCTYPE html>
-<html>
-<body>
+	<html>
+	<body>
 
-<p>Click the button to make a BUTTON element with text.</p>
+		<p>Click the button to make a BUTTON element with text.</p>
 
-<button id="bt" onclick="myFunction()">Try it</button>
+		<button id="bt" onclick="myFunction()">Try it</button>
 
-<script>
-function myFunction() {
-  //Create an input type dynamically.   
-  var element = document.createElement("input");
-  var type = "helloooo"
-  //Assign different attributes to the element. 
-  element.type = "button";
-  element.value = type; // Really? You want the default value to be the type string?
-  element.name = type; // And the name too?
+		<script>
+			function newFunc() {
+				var element = document.createElement("input");
+				var type = "hidden"
+	  //Assign different attributes to the element. 
+	  element.type = "button";
+	  element.value = type; // Really? You want the default value to be the type string?
+	  element.name = type; // And the name too?
+	  var foo = document.getElementById("fooBar");
+	  //Append the element in page (in span).  
+	  foo.appendChild(element);
+	};
+	function myFunction() {
+	  //Create an input type dynamically.   
+	  var element = document.createElement("input");
+	  var type = "helloooo"
+	  //Assign different attributes to the element. 
+	  element.type = "button";
+	  element.value = type; // Really? You want the default value to be the type string?
+	  element.name = type; // And the name too?
 
-  element.onclick = function() { // Note this is a function
-var para = document.createElement("div");                       // Create a <p> element
-para.innerHTML = '<button id="bt" onclick="myFunction()">Try it</button>';
-var t = document.createTextNode('OK');
-para.appendChild(t);                                          // Append the text to <p>
-document.body.appendChild(para);                              // Append <p> to <body>
-  };
+	  element.onclick = function() { // Note this is a function
+	var para = document.createElement("div");                       // Create a <p> element
+	para.innerHTML = '<button id="bt" onclick="newFunc()">HiddenBtn</button>';
+	var t = document.createTextNode('OK');
+	para.appendChild(t);                                          // Append the text to <p>
+	document.body.appendChild(para);                              // Append <p> to <body>
+	};
 
-  var foo = document.getElementById("fooBar");
-  //Append the element in page (in span).  
-  foo.appendChild(element);
-}
-document.getElementById("btnAdd").onclick = function() {
-  add("text");
-};
-</script>
-<input type="button" id="btnAdd" value="Add Text Field">
-<p id="fooBar">Fields:</p>
-</body>
-</html>
+	var foo = document.getElementById("fooBar");
+	  //Append the element in page (in span).  
+	  foo.appendChild(element);
+	}
+	document.getElementById("btnAdd").onclick = function() {
+		add("text");
+	};
+	</script>
+	<input type="button" id="btnAdd" value="Add Text Field">
+	<p id="fooBar">Fields:</p>
+	</body>
+	</html>
 
