@@ -5,9 +5,9 @@
   <p>Click the button to make a BUTTON element with text.</p>
 
   <button id="bt1" onclick="myFunction()">Try it</button>
-
+   <input type="button" id="btnAdd" value="Add Text Field">
   <script>
-//document.getElementById("bt").addEventListener("click", displayDate);
+
 function displayDate() {
     document.getElementById("p1").innerHTML = Date();
     var element = document.createElement("input");
@@ -65,12 +65,10 @@ function displayDate() {
  var foo = document.getElementById("fooBar");
    //Append the element in page (in span).  
    foo.appendChild(element);
- }
- document.getElementById("btnAdd").onclick = function() {
-  add("text");
  };
+ document.getElementById("btnAdd").addEventListener("click", newFunc);
  </script>
- <input type="button" id="btnAdd" value="Add Text Field">
+
  <p id="fooBar">Fields:</p>
 <p id="p1">Time:</p>
 <p id="p2"></p>
