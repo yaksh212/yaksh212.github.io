@@ -40,7 +40,7 @@ function displayDate() {
    element.type = "button";
    element.value = type; // Really? You want the default value to be the type string?
    element.name = type; // And the name too?
-   element.addEventListener("click", displayDate);
+   element.addEventListener("click", newFunc);
    var foo = document.getElementById("p2");
    //Append the element in page (in span).  
    foo.appendChild(element);
