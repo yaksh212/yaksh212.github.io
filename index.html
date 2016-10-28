@@ -6,6 +6,10 @@
 
   <button id="bt1" onclick="myFunction()">Try it</button>
    <input type="button" id="btnAdd" value="Add Text Field">
+<input type="checkbox" id="checkbox"/><label for="checkbox">Checkbox</label>
+<input type="button" onclick="simulateClick();" value="Simulate click"/>
+<input type="button" onclick="addHandler();" value="Add a click handler that calls preventDefault"/>
+<input type="button" onclick="removeHandler();" value="Remove the click handler that calls preventDefault"/>
   <script>
 
 function displayDate() {
@@ -30,6 +34,19 @@ function displayDate() {
    element.name = type; // And the name too?
    element.addEventListener("click", displayDate);
    var foo = document.getElementById("fooBar");
+   //Append the element in page (in span).  
+   foo.appendChild(element);
+ };
+   function createBtn(type) {
+    var element = document.createElement("input");
+
+   //Assign different attributes to the element. 
+   element.type = "button"; 
+    element.id = type;
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
+   element.addEventListener("click", displayDate);
+   var foo = document.getElementById("p3");
    //Append the element in page (in span).  
    foo.appendChild(element);
  };
@@ -67,12 +84,43 @@ function displayDate() {
    foo.appendChild(element);
  };
  document.getElementById("btnAdd").addEventListener("click", newFunc);
+
+function preventDef(event) {
+  event.preventDefault();
+}
+
+function addHandler() {
+  document.getElementById("checkbox").addEventListener("click", 
+    preventDef, false);
+}
+
+function removeHandler() {
+  document.getElementById("checkbox").removeEventListener("click",
+    preventDef, false);
+}
+
+function simulateClick() {
+  var evt = document.createEvent("MouseEvents");
+  evt.initMouseEvent("click", true, true, window,
+    0, 0, 0, 0, 0, false, false, false, false, 0, null);
+  var cb = document.getElementById("checkbox"); 
+  var canceled = !cb.dispatchEvent(evt);
+  if(canceled) {
+    // A handler called preventDefault
+    createBtn("canceled");
+  } else {
+    // None of the handlers called preventDefault
+    createBtn("not canceled");
+  }
+}
+
  </script>
 
  <p id="fooBar">Fields:</p>
 <MARQUEE SCROLLDELAY="5" SCROLLAMOUNT="50" onclick="myFunction()" >This is a very fast marquee.</MARQUEE>
 <p id="p1">Time:</p>
 <p id="p2"></p>
+<p id="p3"></p>
  </body>
  </html>
 
