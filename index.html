@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body> 
 
-<h1>What Can JavaScript Do?</h1>
+<h1>My Web Page</h1>
 
-<p id="demo">JavaScript can change HTML content.</p>
+<p id="demo">A Paragraph</p>
 
-<button type="button" onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!'">Click Me!</button>
+<button type="button" onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+   document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
 
 </body>
 </html>
-
