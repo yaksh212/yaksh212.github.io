@@ -16,7 +16,7 @@ function displayDate() {
    element.type = "button";
    element.value = type; // Really? You want the default value to be the type string?
    element.name = type; // And the name too?
-   element.addEventListener("click", displayDate);
+   element.addEventListener("click", newFunc2);
    var foo = document.getElementById("p1");
    //Append the element in page (in span).  
    foo.appendChild(element);
@@ -30,6 +30,18 @@ function displayDate() {
    element.name = type; // And the name too?
    element.addEventListener("click", displayDate);
    var foo = document.getElementById("fooBar");
+   //Append the element in page (in span).  
+   foo.appendChild(element);
+ };
+   function newFunc2() {
+    var element = document.createElement("input");
+    var type = "AllTheseBtns"
+   //Assign different attributes to the element. 
+   element.type = "button";
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
+   element.addEventListener("click", displayDate);
+   var foo = document.getElementById("p2");
    //Append the element in page (in span).  
    foo.appendChild(element);
  };
@@ -61,6 +73,7 @@ function displayDate() {
  <input type="button" id="btnAdd" value="Add Text Field">
  <p id="fooBar">Fields:</p>
 <p id="p1">Time:</p>
+<p id="p2"></p>
  </body>
  </html>
 
