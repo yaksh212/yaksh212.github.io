@@ -7,9 +7,19 @@
   <button id="bt1" onclick="myFunction()">Try it</button>
 
   <script>
- //document.getElementById("bt").addEventListener("click", displayDate);
+//document.getElementById("bt").addEventListener("click", displayDate);
 function displayDate() {
     document.getElementById("p1").innerHTML = Date();
+    var element = document.createElement("input");
+    var type = "anotheBTn"
+   //Assign different attributes to the element. 
+   element.type = "button";
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
+   element.addEventListener("click", displayDate);
+   var foo = document.getElementById("p1");
+   //Append the element in page (in span).  
+   foo.appendChild(element);
 }
    function newFunc() {
     var element = document.createElement("input");
