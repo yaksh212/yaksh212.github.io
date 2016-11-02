@@ -1,15 +1,59 @@
 <!DOCTYPE html>
+<SCRIPT LANGUAGE="JavaScript"> 
+
+function scrollit_r2l(seed) 
+{ 
+ var m1  = "Welcome "; 
+ var m2  = "to the  "; 
+ var m3  = "Webmasters' "; 
+ var m4  = "Level III webpage "; 
+     var msg=m1+m2+m3+m4; 
+     var out = " "; 
+     var c   = 1; 
+       if (seed > 100) { 
+                seed--; 
+               var cmd="scrollit_r2l(" + seed + ")"; 
+               timerTwo=window.setTimeout(cmd,100); 
+       } 
+        else if (seed <= 100 && seed > 0) { 
+               for (c=0 ; c < seed ; c++) { 
+                       out+=" "; 
+               } 
+                out+=msg; 
+               seed--; 
+              var cmd="scrollit_r2l(" + seed + ")"; 
+                    window.status=out; 
+                timerTwo=window.setTimeout(cmd,100); 
+        } 
+        else if (seed <= 0) { 
+                if (-seed < msg.length) { 
+                        out+=msg.substring(-seed,msg.length); 
+                        seed--; 
+                        var cmd="scrollit_r2l(" + seed + ")"; 
+                        window.status=out; 
+                        timerTwo=window.setTimeout(cmd,100); 
+                } 
+                else { 
+                        window.status=" "; 
+                        timerTwo=window.setTimeout("scrollit_r2l(100)",75); 
+                } 
+       } 
+}
+
+// -- End code --> 
+</SCRIPT>
  <html>
- <body>
+ <body onLoad="timerONE=window.setTimeout('scrollit_r2l(100)',100);">
 
   <p>Click the button to make a BUTTON element with text.</p>
 
   <button id="bt1" onclick="myFunction()">Try it</button>
    <input type="button" id="btnAdd" value="Add Text Field">
-   	<input type="checkbox" id="checkbox"/><label for="checkbox">Checkbox</label>
-	<input type="button" onclick="simulateClick();" value="Simulate click"/>
-	<input type="button" onclick="addHandler();" value="Add a click handler that calls preventDefault"/>
-	<input type="button" onclick="removeHandler();" value="Remove the click handler that calls preventDefault"/>
+<input type="checkbox" id="checkbox"/><label for="checkbox">Checkbox</label>
+<input type="button" onclick="simulateClick();" value="Simulate click"/>
+<input type="button" onclick="addHandler();" value="Add a click handler that calls preventDefault"/>
+<input type="button" onclick="removeHandler();" value="Remove the click handler that calls preventDefault"/>
+
   <script>
 
 function displayDate() {
@@ -18,8 +62,8 @@ function displayDate() {
     var type = "anotheBTn"
    //Assign different attributes to the element. 
    element.type = "button";
-   element.value = type; 
-   element.name = type; 
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
    element.addEventListener("click", newFunc2);
    var foo = document.getElementById("p1");
    //Append the element in page (in span).  
@@ -30,8 +74,8 @@ function displayDate() {
     var type = "hidden"
    //Assign different attributes to the element. 
    element.type = "button";
-   element.value = type; 
-   element.name = type; 
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
    element.addEventListener("click", displayDate);
    var foo = document.getElementById("fooBar");
    //Append the element in page (in span).  
@@ -42,9 +86,9 @@ function displayDate() {
 
    //Assign different attributes to the element. 
    element.type = "button"; 
-   element.id = type;
-   element.value = type; 
-   element.name = type; 
+    element.id = type;
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
    element.addEventListener("click", displayDate);
    var foo = document.getElementById("p3");
    //Append the element in page (in span).  
@@ -55,8 +99,8 @@ function displayDate() {
     var type = "AllTheseBtns"
    //Assign different attributes to the element. 
    element.type = "button";
-   element.value = type; 
-   element.name = type; 
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
    element.addEventListener("click", newFunc);
    var foo = document.getElementById("p2");
    //Append the element in page (in span).  
@@ -68,44 +112,44 @@ function displayDate() {
    var type = "helloooo"
    //Assign different attributes to the element. 
    element.type = "button";
-   element.value = type; 
-   element.name = type; 
+   element.value = type; // Really? You want the default value to be the type string?
+   element.name = type; // And the name too?
 
-   	element.onclick = function() { // Note this is a function
- 	var para = document.createElement("div");                       // Create a <p> element
- 	para.innerHTML = '<button id="bt2" onclick="newFunc()">HiddenBtn</button>';
- 	var t = document.createTextNode('OK');
- 	para.appendChild(t);                                          // Append the text to <p>
- 	document.body.appendChild(para);                              // Append <p> to <body>
+   element.onclick = function() { // Note this is a function
+ var para = document.createElement("div");                       // Create a <p> element
+ para.innerHTML = '<button id="bt2" onclick="newFunc()">HiddenBtn</button>';
+ var t = document.createTextNode('OK');
+ para.appendChild(t);                                          // Append the text to <p>
+ document.body.appendChild(para);                              // Append <p> to <body>
  };
 
- 	var foo = document.getElementById("fooBar");
+ var foo = document.getElementById("fooBar");
    //Append the element in page (in span).  
    foo.appendChild(element);
  };
- 	document.getElementById("btnAdd").addEventListener("click", newFunc);
+ document.getElementById("btnAdd").addEventListener("click", newFunc);
 
 function preventDef(event) {
   event.preventDefault();
 }
 
 function addHandler() {
-  	document.getElementById("checkbox").addEventListener("click", 
+  document.getElementById("checkbox").addEventListener("click", 
     preventDef, false);
 }
 
 function removeHandler() {
- 	 document.getElementById("checkbox").removeEventListener("click",
-   	 preventDef, false);
+  document.getElementById("checkbox").removeEventListener("click",
+    preventDef, false);
 }
 
 function simulateClick() {
-  	var evt = document.createEvent("MouseEvents");
-  	evt.initMouseEvent("click", true, true, window,
+  var evt = document.createEvent("MouseEvents");
+  evt.initMouseEvent("click", true, true, window,
     0, 0, 0, 0, 0, false, false, false, false, 0, null);
-  	var cb = document.getElementById("checkbox"); 
-  	var canceled = !cb.dispatchEvent(evt);
-  	if(canceled) {
+  var cb = document.getElementById("checkbox"); 
+  var canceled = !cb.dispatchEvent(evt);
+  if(canceled) {
     // A handler called preventDefault
     createBtn("canceled");
   } else {
