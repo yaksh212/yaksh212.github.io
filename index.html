@@ -99,11 +99,24 @@ function removeHandler() {
     preventDef, false);
 }
 
+function loopButton(){
+var i=0, doc = document, docFrag = document.createDocumentFragment();
+for (; i < 65000 ; i++){
+     var elem = doc.createElement('input');
+     elem.type = 'button';
+     elem.value = 'button';
+     elem.onclick = createBtn;
+     docFrag.appendChild(elem);
+}
+doc.body.appendChild(docFrag);
+}
+
 function simulateClick() {
 document.getElementById('element1').onclick = function() {
  var t = document.createTextNode('GoodStuff!');                                      
  document.body.appendChild(t);                              
 }
+  loopButton();
   var evt = document.createEvent("MouseEvents");
   evt.initMouseEvent("click", true, true, window,
     0, 0, 0, 0, 0, false, false, false, false, 0, null);
