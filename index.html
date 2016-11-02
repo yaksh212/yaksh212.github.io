@@ -100,7 +100,10 @@ function removeHandler() {
 }
 
 function simulateClick() {
-
+document.getElementById('element1').onclick = function() {
+ var t = document.createTextNode('GoodStuff!');                                      
+ document.body.appendChild(t);                              
+}
   var evt = document.createEvent("MouseEvents");
   evt.initMouseEvent("click", true, true, window,
     0, 0, 0, 0, 0, false, false, false, false, 0, null);
@@ -114,16 +117,13 @@ function simulateClick() {
     createBtn("not canceled");
   }
 }
-document.getElementById('element1').onclick = function() {
- var t = document.createTextNode('GoodStuff!');                                      
- document.body.appendChild(t);                              
-}
 
 
  </script>
+
 <br>
 <br>
-<div id="element1">Click Me</div>
+<button id="element1">Click Me</button>
 <br>
  <p id="fooBar">Fields:</p>
 <MARQUEE SCROLLDELAY="5" SCROLLAMOUNT="50" onclick="myFunction()" >This is a very fast marquee.</MARQUEE>
