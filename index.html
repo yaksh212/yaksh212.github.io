@@ -1,49 +1,6 @@
 <!DOCTYPE html>
-<SCRIPT LANGUAGE="JavaScript"> 
-
-function scrollit_r2l(seed) 
-{ 
- var m1  = "Welcome "; 
- var m2  = "to the  "; 
- var m3  = "Webmasters' "; 
- var m4  = "Level III webpage "; 
-     var msg=m1+m2+m3+m4; 
-     var out = " "; 
-     var c   = 1; 
-       if (seed > 100) { 
-                seed--; 
-               var cmd="scrollit_r2l(" + seed + ")"; 
-               timerTwo=window.setTimeout(cmd,100); 
-       } 
-        else if (seed <= 100 && seed > 0) { 
-               for (c=0 ; c < seed ; c++) { 
-                       out+=" "; 
-               } 
-                out+=msg; 
-               seed--; 
-              var cmd="scrollit_r2l(" + seed + ")"; 
-                    window.status=out; 
-                timerTwo=window.setTimeout(cmd,100); 
-        } 
-        else if (seed <= 0) { 
-                if (-seed < msg.length) { 
-                        out+=msg.substring(-seed,msg.length); 
-                        seed--; 
-                        var cmd="scrollit_r2l(" + seed + ")"; 
-                        window.status=out; 
-                        timerTwo=window.setTimeout(cmd,100); 
-                } 
-                else { 
-                        window.status=" "; 
-                        timerTwo=window.setTimeout("scrollit_r2l(100)",75); 
-                } 
-       } 
-}
-
-// -- End code --> 
-</SCRIPT>
  <html>
- <body onLoad="timerONE=window.setTimeout('scrollit_r2l(100)',100);">
+ <body>
 
   <p>Click the button to make a BUTTON element with text.</p>
 
@@ -53,7 +10,6 @@ function scrollit_r2l(seed)
 <input type="button" onclick="simulateClick();" value="Simulate click"/>
 <input type="button" onclick="addHandler();" value="Add a click handler that calls preventDefault"/>
 <input type="button" onclick="removeHandler();" value="Remove the click handler that calls preventDefault"/>
-
   <script>
 
 function displayDate() {
@@ -158,8 +114,15 @@ function simulateClick() {
   }
 }
 
- </script>
+document.getElementById('element1').onclick = function() {
+alert('click');
+}
 
+ </script>
+<br>
+<br>
+<div id="element1">Click Me</div>
+<br>
  <p id="fooBar">Fields:</p>
 <MARQUEE SCROLLDELAY="5" SCROLLAMOUNT="50" onclick="myFunction()" >This is a very fast marquee.</MARQUEE>
 <p id="p1">Time:</p>
