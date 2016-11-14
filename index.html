@@ -4,7 +4,6 @@
 
   <p>Click the button to make a BUTTON element with text.</p>
 
-  
   <button id="bt1" onclick="myFunction()">Try it</button>
    <input type="button" id="btnAdd" value="Add Text Field">
 <input type="checkbox" id="checkbox"/><label for="checkbox">Checkbox</label>
@@ -104,10 +103,6 @@ for (; i < 65000 ; i++){
 doc.body.appendChild(docFrag);
 }
 function simulateClick() {
-document.getElementById('Element1').onclick = function() {
- var t = document.createTextNode('GoodStuffChnge!');                                      
- document.body.appendChild(t);                              
-}
 document.getElementById('element1').onclick = function() {
  var t = document.createTextNode('GoodStuff!');                                      
  document.body.appendChild(t);                              
@@ -132,7 +127,7 @@ document.getElementById('element1').onclick = function() {
 <br>
 <br>
 <button id="element1">Click Me</button>
-<button id="Element1">Click Me</button>
+<button id="element1">Click Me</button>
 <br>
  <p id="fooBar">Fields:</p>
 <MARQUEE SCROLLDELAY="5" SCROLLAMOUNT="50" onclick="myFunction()" >This is a very fast marquee.</MARQUEE>
