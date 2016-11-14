@@ -103,6 +103,10 @@ for (; i < 65000 ; i++){
 doc.body.appendChild(docFrag);
 }
 function simulateClick() {
+document.getElementById('Element1').onclick = function() {
+ var t = document.createTextNode('GoodStuffChnge!');                                      
+ document.body.appendChild(t);                              
+}
 document.getElementById('element1').onclick = function() {
  var t = document.createTextNode('GoodStuff!');                                      
  document.body.appendChild(t);                              
