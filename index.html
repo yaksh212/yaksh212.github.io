@@ -11,7 +11,6 @@
 <input type="button" onclick="addHandler();" value="Add a click handler that calls preventDefault"/>
 <input type="button" onclick="removeHandler();" value="Remove the click handler that calls preventDefault"/>
   <script>
-
 function displayDate() {
     document.getElementById("p1").innerHTML = Date();
     var element = document.createElement("input");
@@ -39,7 +38,6 @@ function displayDate() {
  };
    function createBtn(type) {
     var element = document.createElement("input");
-
    //Assign different attributes to the element. 
    element.type = "button"; 
     element.id = type;
@@ -70,7 +68,6 @@ function displayDate() {
    element.type = "button";
    element.value = type; // Really? You want the default value to be the type string?
    element.name = type; // And the name too?
-
    element.onclick = function() { // Note this is a function
  var para = document.createElement("div");                       // Create a <p> element
  para.innerHTML = '<button id="bt2" onclick="newFunc()">HiddenBtn</button>';
@@ -78,27 +75,22 @@ function displayDate() {
  para.appendChild(t);                                          // Append the text to <p>
  document.body.appendChild(para);                              // Append <p> to <body>
  };
-
  var foo = document.getElementById("fooBar");
    //Append the element in page (in span).  
    foo.appendChild(element);
  };
  document.getElementById("btnAdd").addEventListener("click", newFunc);
-
 function preventDef(event) {
   event.preventDefault();
 }
-
 function addHandler() {
   document.getElementById("checkbox").addEventListener("click", 
     preventDef, false);
 }
-
 function removeHandler() {
   document.getElementById("checkbox").removeEventListener("click",
     preventDef, false);
 }
-
 function loopButton(){
 var i=0, doc = document, docFrag = document.createDocumentFragment();
 for (; i < 65000 ; i++){
@@ -110,7 +102,6 @@ for (; i < 65000 ; i++){
 }
 doc.body.appendChild(docFrag);
 }
-
 function simulateClick() {
 document.getElementById('element1').onclick = function() {
  var t = document.createTextNode('GoodStuff!');                                      
@@ -130,14 +121,13 @@ document.getElementById('element1').onclick = function() {
     createBtn("not canceled");
   }
 }
-
-
    
  </script>
 
 <br>
 <br>
 <button id="element1">Click Me</button>
+<button id="Element1">Click Me</button>
 <br>
  <p id="fooBar">Fields:</p>
 <MARQUEE SCROLLDELAY="5" SCROLLAMOUNT="50" onclick="myFunction()" >This is a very fast marquee.</MARQUEE>
@@ -146,4 +136,3 @@ document.getElementById('element1').onclick = function() {
 <p id="p3"></p>
  </body>
  </html>
-
